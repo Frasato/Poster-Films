@@ -30,7 +30,7 @@ export default function Home(){
                     return(
                         <div key={film.id}>
                             <h1>{film.title}</h1>
-                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`}/>
+                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
                             <Link to={`/film/${film.id}`}>Watch</Link>
                         </div>
                     )
@@ -41,7 +41,7 @@ export default function Home(){
                     return(
                         <div key={film.id}>
                             <h1>{film.title}</h1>
-                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`}/>
+                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
                         </div>
                     )
                 })}

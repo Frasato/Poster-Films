@@ -5,4 +5,3 @@ const api = axios.create({
 });
 
 export default api;
-//https://api.themoviedb.org/3/movie/now_playing?api_key=e0abc88156d380bf9979cd93aac04390
