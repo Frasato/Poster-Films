@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import api from "../../services/api";
+import api from "../../services/api.js";
+
+import Loading, {loading} from '../../components/Loading/Loading.js'
 
 export default function Home(){
     
@@ -27,9 +29,7 @@ export default function Home(){
 
     if(loading){
         return(
-            <div className="loading">
-                <h2>Loading Films...</h2>
-            </div>
+            <Loading/>
         );
     }
 
