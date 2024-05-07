@@ -6,6 +6,7 @@ export default function Home(){
     
     const [films, setFilms] = useState([]);
     const [filmsScroll, setFilmsScroll] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
         async function loadFilms(){
@@ -21,7 +22,16 @@ export default function Home(){
         }
 
         loadFilms();
+        setLoading(false);
     },[]);
+
+    if(loading){
+        return(
+            <div className="loading">
+                <h2>Loading Films...</h2>
+            </div>
+        );
+    }
 
     return(
         <div className="container">
