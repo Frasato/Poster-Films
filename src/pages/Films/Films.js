@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api.js";
 import Loading from "../../components/Loading/Loading.js";
 import { FaCalendarAlt, FaRegStar, FaStar} from "react-icons/fa";
@@ -9,6 +9,7 @@ export default function Films(){
     const {id} = useParams();
     const [film, setFilm] = useState({});
     const [loading, setLoading] = useState(true);
+    const navigation = useNavigate();
 
     useEffect(()=>{
         async function selectedFilm(){
@@ -19,12 +20,14 @@ export default function Films(){
             }).then((response)=>{
                 setFilm(response.data);
                 setLoading(false);
-            })
+            }).catch(()=>{
+                navigation("*", {replace: true});
+            });
         }
 
         selectedFilm();
 
-    },[]);
+    },[id, navigation]);
 
     if(loading){
         return(
@@ -96,7 +99,7 @@ export default function Films(){
             <div className="buttons_container">
                 <button>Watch Later</button>
                 <button>
-                    <a href="#">Whatch Trailer</a>
+                    <a href={`https://youtube.com/results?search_query=${film.title}`} rel="noreferrer" target="_blank">Whatch Trailer</a>
                 </button>
 
             </div>
