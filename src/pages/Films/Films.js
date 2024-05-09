@@ -19,9 +19,7 @@ export default function Films(){
             }).then((response)=>{
                 setFilm(response.data);
                 setLoading(false);
-            }).catch((err)=>{
-                
-            });
+            })
         }
 
         selectedFilm();
@@ -95,6 +93,13 @@ export default function Films(){
             <p>"{film.overview}"</p>
             <h2><FaCalendarAlt/>{film.release_date}</h2>
             <h2>{film.vote_average} - {starsFilm()}</h2>
+            <div className="buttons_container">
+                <button>Watch Later</button>
+                <button>
+                    <a href="#">Whatch Trailer</a>
+                </button>
+
+            </div>
         </div>
     );  
 }
