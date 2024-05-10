@@ -38,7 +38,7 @@ export default function Films(){
             window.alert("The Movie already exist on save list!");
             return;
         }else{
-            savedFilms = [...savedFilms, film];
+            savedFilms.push(film);
             localStorage.setItem("@postersfilm", JSON.stringify(savedFilms));
         }
     }
