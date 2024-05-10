@@ -29,6 +29,20 @@ export default function Films(){
 
     },[id, navigation]);
 
+    function saveFilm(){
+        const getFilms = localStorage.getItem("@postersfilms");
+        let savedFilms = JSON.parse(getFilms) || [];
+        const hasFilm = savedFilms.some((allSavedFilms)=> allSavedFilms.id === film.id);
+
+        if(hasFilm){
+            window.alert("The Movie already exist on save list!");
+            return;
+        }else{
+            savedFilms = [...savedFilms, film];
+            localStorage.setItem("@postersfilm", JSON.stringify(savedFilms));
+        }
+    }
+
     if(loading){
         return(
             <Loading/>
@@ -97,9 +111,9 @@ export default function Films(){
             <h2><FaCalendarAlt/>{film.release_date}</h2>
             <h2>{film.vote_average} - {starsFilm()}</h2>
             <div className="buttons_container">
-                <button>Watch Later</button>
+                <button onClick={saveFilm}>Watch Later</button>
                 <button>
-                    <a href={`https://youtube.com/results?search_query=${film.title}`} rel="noreferrer" target="_blank">Whatch Trailer</a>
+                    <a href={`https://youtube.com/results?search_query=${film.title}`} rel="noreferrer" target="blank">Whatch Trailer</a>
                 </button>
 
             </div>
