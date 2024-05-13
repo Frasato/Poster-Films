@@ -15,7 +15,7 @@ export default function Films(){
         async function selectedFilm(){
             await api.get(`movie/${id}`, {
                 params:{
-                    api_key: 'e0abc88156d380bf9979cd93aac04390',
+                    api_key: process.env.REACT_APP_API_KEY,
                 }
             }).then((response)=>{
                 setFilm(response.data);
@@ -50,7 +50,7 @@ export default function Films(){
     }
 
     function starsFilm(){
-        if(film.vote_average < 1){
+        if(film.vote_average <= 1){
             return(
                 <>
                     <FaStar/>
@@ -115,7 +115,6 @@ export default function Films(){
                 <button>
                     <a href={`https://youtube.com/results?search_query=${film.title}`} rel="noreferrer" target="blank">Whatch Trailer</a>
                 </button>
-
             </div>
         </div>
     );  
