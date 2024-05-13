@@ -15,7 +15,7 @@ export default function Films(){
         async function selectedFilm(){
             await api.get(`movie/${id}`, {
                 params:{
-                    api_key: process.env.REACT_APP_API_KEY,
+                    api_key: 'e0abc88156d380bf9979cd93aac04390',
                 }
             }).then((response)=>{
                 setFilm(response.data);
