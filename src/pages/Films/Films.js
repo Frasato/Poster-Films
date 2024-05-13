@@ -39,7 +39,7 @@ export default function Films(){
             return;
         }else{
             savedFilms.push(film);
-            localStorage.setItem("@postersfilm", JSON.stringify(savedFilms));
+            localStorage.setItem("@postersfilms", JSON.stringify(savedFilms));
         }
     }
 

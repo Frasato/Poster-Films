@@ -5,14 +5,14 @@ export default function WatchLater(){
     const [films, setFilms] = useState([]);
 
     useEffect(()=>{
-        const getFilms = JSON.parse(localStorage.getItem("@postersfilm"));
+        const getFilms = JSON.parse(localStorage.getItem("@postersfilms"));
         setFilms(getFilms);
     }, []);
     
     function deleteFilm(){
         const deletedFilm = films.find((film)=> film.id !== films.id);
         setFilms(deletedFilm);
-        localStorage.setItem("@postersfilm", JSON.stringify(deletedFilm));
+        localStorage.setItem("@postersfilms", JSON.stringify(deletedFilm));
     }
 
     return(
