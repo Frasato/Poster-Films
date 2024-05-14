@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import api from "../../services/api.js";
+import '../../styles/home.scss';
 
 import Loading from '../../components/Loading/Loading.js'
 
@@ -35,13 +36,13 @@ export default function Home(){
 
     return(
         <div className="container">
-            <div className="scrollFilms">
+            <div className="scroll-films">
                 {filmsScroll.map((film)=>{
                     return(
                         <div key={film.id}>
-                            <h1>{film.title}</h1>
-                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
-                            <Link to={`/film/${film.id}`}>Watch</Link>
+                            <Link to={`/film/${film.id}`} className="button">
+                                <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
+                            </Link>
                         </div>
                     )
                 })}
@@ -50,9 +51,9 @@ export default function Home(){
                 {films.map((film)=>{
                     return(
                         <div key={film.id}>
-                            <h1>{film.title}</h1>
-                            <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
-                            <Link to={`/film/${film.id}`}>Watch</Link>
+                            <Link to={`/film/${film.id}`} className="button">
+                                <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
+                            </Link>
                         </div>
                     )
                 })}

@@ -1,0 +1,40 @@
+@mixin filmsStyle($widthValue){
+    .button{
+        img{
+            width: $widthValue;
+            border-radius: 10px;
+            &:hover{
+                transform: scale(1.1);
+                z-index: 1;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+@mixin flexFilms($direction, $break){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: $break;
+    gap: 10px;
+}
+
+.container{
+    @include flexFilms(column, nowrap);
+    margin-bottom: 50px;
+    .scroll-films{
+        @include flexFilms(row, nowrap);
+        div{
+            @include filmsStyle(200px);
+        }
+    }
+    .films{
+        width: 1300px;
+        @include flexFilms(row, wrap);
+        div{
+            @include filmsStyle(148px);
+        }
+    }
+}
