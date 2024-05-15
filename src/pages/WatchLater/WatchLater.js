@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import EmptyList from "../../components/EmptyList/EmpytList";
+import '../../styles/watchLater.scss';
 
 export default function WatchLater(){
     const [films, setFilms] = useState([]);
@@ -17,20 +18,19 @@ export default function WatchLater(){
     }
 
     return(
-        <>
+        <div className="container_saved-films">
             {
                 films? films.map((film)=>{
                     return(
-                        <div key={film.id}>
-                            <img src={`https://image.tmdb.org/t/p/original/${film.backdrop_path}`} alt="Poster Film"/>
-                            <h1>{film.title}</h1>
-                            <button onClick={() => deleteFilms(film.id)}>
-                                <MdDelete />
-                            </button>
-                        </div>
+                            <div key={film.id} className="film">
+                                <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
+                                <button onClick={() => deleteFilms(film.id)}>
+                                    <MdDelete />
+                                </button>
+                            </div>
                     )
                 }) : <EmptyList/>
             }
-        </>
+        </div>
     );
 }
