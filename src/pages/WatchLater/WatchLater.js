@@ -20,7 +20,7 @@ export default function WatchLater(){
     return(
         <div className="container_saved-films">
             {
-                films? films.map((film)=>{
+                films.length > 0? films.map((film)=>{
                     return(
                             <div key={film.id} className="film">
                                 <img src={`https://image.tmdb.org/t/p/original/${film.poster_path}`} alt="Poster Film"/>
