@@ -25,16 +25,22 @@
     @include flexFilms(column, nowrap);
     margin-bottom: 50px;
     .scroll-films{
-        @include flexFilms(row, nowrap);
+        @include flexFilms(row, wrap);
         div{
             @include filmsStyle(200px);
         }
     }
     .films{
-        width: 1300px;
+        width: 100%;
         @include flexFilms(row, wrap);
         div{
             @include filmsStyle(148px);
+            @media screen and (max-width: 576px){
+                @include filmsStyle(200px);
+            }
+            @media screen and (max-width: 768px){
+                @include filmsStyle(200px);
+            }
         }
     }
 }
