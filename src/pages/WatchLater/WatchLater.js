@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import EmptyList from "../../components/EmptyList/EmpytList";
+import { toast } from "react-toastify";
 import '../../styles/watchLater.scss';
 
 export default function WatchLater(){
@@ -15,6 +16,7 @@ export default function WatchLater(){
         const newFilms = films.filter(film => film.id !== id);
         setFilms(newFilms);
         localStorage.setItem("@postersfilms", JSON.stringify(newFilms));
+        toast.success("Delete film sucess");
     }
 
     return(

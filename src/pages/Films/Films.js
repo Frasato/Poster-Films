@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api.js";
 import Loading from "../../components/Loading/Loading.js";
 import { FaCalendarAlt, FaRegStar, FaStar} from "react-icons/fa";
+import { toast } from "react-toastify";
 import '../../styles/film.scss';
 
 export default function Films(){
@@ -36,11 +37,12 @@ export default function Films(){
         const hasFilm = savedFilms.some((allSavedFilms)=> allSavedFilms.id === film.id);
 
         if(hasFilm){
-            window.alert("The Movie already exist on save list!");
+            toast.warn("Film already exist...");
             return;
         }else{
             savedFilms.push(film);
             localStorage.setItem("@postersfilms", JSON.stringify(savedFilms));
+            toast.success("Sucess to save");
         }
     }
 
